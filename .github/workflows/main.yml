@@ -81,6 +81,7 @@
             pwd
             ls -la
 
+            cp kernel/.config config
             
         - name: Upload Build file
           uses: actions/upload-artifact@v4
@@ -88,6 +89,6 @@
             name: kernel-config
             path: |
               ${{ github.workspace }}/config-postmarketos-qcom-msm8953.aarch64
-              #${{ github.workspace }}/kernel/.config
+              #${{ github.workspace }}/config
               #${{ github.workspace }}/*.deb
               ${{ github.workspace }}/kernel/arm/arm64/boot/*
