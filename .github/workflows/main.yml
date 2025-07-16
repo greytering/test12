@@ -43,7 +43,7 @@
             sudo dpkg --add-architecture arm64
             sudo cp /etc/apt/sources.list.d/ubuntu.sources /etc/apt/sources.list.d/ubuntu.sources.bak
             sudo -i
-            cat > /etc/apt/sources.list.d/ubuntu.sources << EOF
+            sudo tee /etc/apt/sources.list.d/ubuntu.sources > /dev/null << EOF
             Types: deb
             URIs: http://mirrors.aliyun.com/ubuntu-ports/
             Suites: noble noble-updates noble-backports
