@@ -54,11 +54,9 @@
             sudo apt update
             sudo apt install libssl-dev:arm64 -y
 
-
-
   
         # Runs a set of commands using the runners shell
-        - name: Run a multi-line script
+        - name: Run Download .config script
           run: |
             echo Add other actions to build,
             echo test, and deploy your project.
@@ -77,19 +75,19 @@
             ls -la
             cp ${{ github.workspace }}/config-postmarketos-qcom-msm8953.aarch64 kernel/.config
             cd kernel
-            make ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu- CC=aarch64-linux-gnu-gcc -j$(nproc)
-            make -j$(nproc) ARCH=arm64 KBUILD_DEBARCH=arm64 KDEB_CHANGELOG_DIST=mobile CROSS_COMPILE=aarch64-linux-gnu- CC=aarch64-linux-gnu-gcc bindeb-pkg
-            make -j$(nproc) ARCH=arm64 KBUILD_DEBARCH=arm64 KDEB_CHANGELOG_DIST=mobile CROSS_COMPILE=aarch64-linux-gnu- CC=aarch64-linux-gnu-gcc dtbs
+            #make ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu- CC=aarch64-linux-gnu-gcc -j$(nproc)
+            #make -j$(nproc) ARCH=arm64 KBUILD_DEBARCH=arm64 KDEB_CHANGELOG_DIST=mobile CROSS_COMPILE=aarch64-linux-gnu- CC=aarch64-linux-gnu-gcc bindeb-pkg
+            #make -j$(nproc) ARCH=arm64 KBUILD_DEBARCH=arm64 KDEB_CHANGELOG_DIST=mobile CROSS_COMPILE=aarch64-linux-gnu- CC=aarch64-linux-gnu-gcc dtbs
             pwd
             ls -la
 
             
-        - name: Upload .config file
+        - name: Upload Build file
           uses: actions/upload-artifact@v4
           with:
             name: kernel-config
             path: |
               ${{ github.workspace }}/config-postmarketos-qcom-msm8953.aarch64
-              ${{ github.workspace }}/kernel/.config
-              ${{ github.workspace }}/*.deb
+              #${{ github.workspace }}/kernel/.config
+              #${{ github.workspace }}/*.deb
               ${{ github.workspace }}/kernelarm/arm64/boot/*
