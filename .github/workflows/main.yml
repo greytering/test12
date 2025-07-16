@@ -67,6 +67,7 @@
             cp config-postmarketos-qcom-msm8953.aarch64 .config
             ls -la
             pwd
+            cp ${{ github.workspace }}/.config ${{ github.workspace }}/config
 
         - name: Run Download Kernel
           run: |
@@ -81,7 +82,7 @@
             pwd
             ls -la
 
-            cp kernel/.config config
+            
             
         - name: Upload Build file
           uses: actions/upload-artifact@v4
