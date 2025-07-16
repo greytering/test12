@@ -90,4 +90,4 @@
               ${{ github.workspace }}/config-postmarketos-qcom-msm8953.aarch64
               #${{ github.workspace }}/kernel/.config
               #${{ github.workspace }}/*.deb
-              ${{ github.workspace }}/kernelarm/arm64/boot/*
+              ${{ github.workspace }}/kernel/arm/arm64/boot/*
